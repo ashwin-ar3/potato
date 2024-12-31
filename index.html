@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2025</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff0000, #700c0c, #f1192b, #580808);
+            background-size: 400% 400%;
+            color: white;
+            text-align: center;
+            padding: 50px;
+            animation: gradientAnimation 10s ease infinite;
+            overflow: hidden; /* Disable scrolling initially */
+            height: 200vh; /* Extend the height for scrolling */
+        }
+        h1 {
+            font-size: 3em;
+            animation: glow 1s infinite alternate;
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff5733;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        button:hover {
+            background-color: #c70039;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #3700ff; }
+            to { text-shadow: 0 0 20px #07f81b; }
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        .emoji {
+            position: absolute;
+            top: -50px;
+            animation: fall linear infinite;
+            pointer-events: none;
+        }
+        .scroll-text {
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+            white-space: nowrap;
+            font-size: 5em; /* Increased font size */
+            margin-top: 20px;
+            animation: moveText 10s linear infinite, vibrate 0.1s linear infinite;
+            display: none; /* Initially hidden */
+        }
+        @keyframes moveText {
+            0% { left: 100vw; }
+            100% { left: -100%; } /* Adjusted to move fully past the screen */
+        }
+        @keyframes vibrate {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(5px); }
+        }
+        .delayed-text {
+            font-size: 2em;
+            margin-top: 20px;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 1s; /* Fade in effect */
+        }
+        .delayed-text.visible {
+            opacity: 1; /* Make visible when class added */
+        }
+        
+        .section {
+            height: 100vh; /* Create sections for scrolling */
+            padding: 50px;
+        }
+        /* New scroll prompt styles */
+        .scroll-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            color: white;
+            display: none; /* Initially hidden */
+            align-items: center;
+            opacity: 1;
+            transition: opacity 1s ease-in-out; /* Add fade-out effect */
+        }
+        .scroll-arrow {
+            margin-left: 10px;
+            font-size: 2em;
+            animation: bounce 1s infinite; /* Arrow bounce animation */
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        /* Add a letter-like format to the delayed text */
+        .letter-format {
+    background-color: #fff;
+    color: #333;
+    font-family: 'Georgia', serif; /* A classic letter-style font */
+    font-size: 0.7em;
+    padding: 40px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(0); /* Initially hidden with scale */
+    transition: transform 1s ease-out; /* Smooth transition for appearing */
+}
+
+/* Make the letter visible with a fade-in effect */
+.delayed-text.visible .letter-format {
+    transform: scale(1); /* Make the letter format appear with scale */
+    opacity: 1; /* Ensure visibility */
+}
+
+.delayed-text {
+    font-size: 2em;
+    margin-top: 20px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s; /* Fade in effect */
+}
+
+/* Keep the rest of the styles for smooth delayed appearance */
+.delayed-text.visible {
+    opacity: 1;
+}
+
+/* Styling for the first line (larger font size and left-aligned) */
+.first-line {
+    font-size: 1.5em; /* Larger font size for the first line */
+    text-align: left;  /* Align the first line to the left */
+    margin-bottom: 10px; /* Some space after the first line */
+}
+
+/* Smaller font size for subsequent paragraphs */
+.letter-format p:not(.first-line) {
+    font-size: 1em; /* Smaller font size for the next paragraphs */
+    text-align: center; /* Center-align the subsequent paragraphs */
+    margin-bottom: 20px; /* Space between paragraphs */
+}
+
+/* Apply cursive italic styling to the name */
+.cursive-name {
+    font-family: 'Dancing Script', cursive; /* Cursive font */
+    font-style: italic; /* Ensure it is italic */
+    font-size: 1.5em; /* Adjust the font size for emphasis */
+}
+
+/* Right-align the last line and adjust font size */
+.name {
+    font-size: 1.2em; /* Increase font size for better readability */
+    text-align: right; /* Align the last line to the right */
+    margin-top: 20px; /* Space above the last line */
+}
+
+.golden-glow {
+    font-family: 'Georgia', serif; /* A nice font for the effect */
+    font-size: 1em; /* Larger font size to make the glow more prominent */
+    font-weight: bold; /* Bold text to emphasize the glow */
+    color: gold; /* Base color of the text */
+    text-align: center; /* Center the text */
+    
+    /* Adding a black outline around the text */
+    text-shadow: 
+        2px 2px 5px rgba(0, 0, 0, 0.6),  /* Black outline shadow */
+        0 0 10px rgba(255, 215, 0, 0.7),  /* Glow effect */
+        0 0 15px rgba(255, 215, 0, 0.7), 
+        0 0 20px rgba(255, 215, 0, 1);  /* Intense glow effect */
+    
+    animation: shine 4s ease-in-out infinite; /* Looping shine effect */
+}
+
+/* Keyframes for the dimming and shining animation */
+@keyframes shine {
+    0% {
+        text-shadow: 
+            2px 2px 5px rgba(0, 0, 0, 0.6),
+            0 0 10px rgba(145, 125, 12, 0.5),
+            0 0 15px rgba(255, 215, 0, 0.5),
+            0 0 20px rgba(255, 215, 0, 0.7);
+    }
+    50% {
+        text-shadow: 
+            2px 2px 5px rgba(0, 0, 0, 0.6),
+            0 0 10px rgb(255, 217, 0),
+            0 0 15px rgb(255, 217, 0),
+            0 0 20px rgba(255, 215, 0, 1);
+    }
+    100% {
+        text-shadow: 
+            2px 2px 5px rgba(0, 0, 0, 0.6),
+            0 0 10px rgba(77, 66, 8, 0.5),
+            0 0 15px rgba(121, 105, 14, 0.5),
+            0 0 20px rgba(255, 215, 0, 0.7);
+    }
+}
+
+
+        /* Slideshow styles */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+        .slideshow-wrapper {
+            display: flex;
+            animation: scrollSlides 50s linear infinite;
+        }
+        .slide {
+            position: relative;
+            flex-shrink: 0;
+            width: 50vw;
+            height: 1000px;
+            background-size: cover;
+            background-position: center;
+        }
+        .slide-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 2em;
+    color: rgb(197, 194, 18);
+    text-shadow: 
+        3px 3px 10px rgba(0, 0, 0, 0.9), /* Stronger and larger shadow */
+        -3px -3px 10px rgba(0, 0, 0, 0.7), /* Opposite side shadow */
+        0 0 15px rgba(0, 0, 0, 1); /* Central glow */
+}
+
+        @keyframes scrollSlides {
+             0% { transform: translateX(0); }
+             100% { transform: translateX(-700%); } /* Adjusted to loop through all 7 slides */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- First screen content -->
+    <div class="section" id="first-screen">
+        <h1>Happy New Year 2025!</h1>
+        <p>To the most amazing person in my life, MUNNI!!!</p>
+        <button onclick="startEmojiShower()">Click eh😭</button>
+        <p id="message" style="display:none;">Every year is special with you by my side. Let’s make 2025 unforgettable!</p>
+    </div>
+    <div> <p>PS: click on the button 100 times to see a glimpse of how much i love you😏</div>
+    <div class="section" id="second-screen">
+        <div id="scroll-text" class="scroll-text">AHHHHHHHHHHHHHHHHHHHHHH😭😭😭</div>
+        <div id="delayed-text" class="delayed-text">
+            <div class="letter-format">
+                <p class="first-line">Dear <span class="golden-glow">Munni</p>
+            
+                <p>I just can't believe that we are stepping into this new year, I just want to take a moment to thank you for being the light of my freaking life. 
+                    Every moment with you feels like a beautiful dream, a perfect dream that i dont ever want to out live and with each passing day, my love for you grows stronger and stronger. 
+                    The memories we have created together in the past year are just irreplaceable, and I can’t wait to make even more in this one. <p>To be honest, this last year just went by so fast and with u it just feels like time flies.
+                    The funny part is how every year i open up my notes and get to read wat i wrote last year and realise how i just keep falling for you over and over again , non stop , just loving you even harder every second i spend in your thoughts.
+
+                </p>I feel so lucky to have you by my side, and I promise to cherish, support, and love you through every moment of this new year. 
+                 No matter what comes our way, we’ll face it together, hand in hand. Although times have been rough Ill always there with you till the very end.
+                 Here’s to another year of laughter, love, and beautiful memories with you.</p>
+                    
+                   <p> Happy New Year, my beautiful baby. You make everything better just by existing in it my poato😭.</p>
+                <div>
+                <p>With love,</p></div>
+                <p class="name">Your <span class="cursive-name">Ashwin</span></p>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-container">
+        <div class="slideshow-wrapper">
+            <div class="slide" style="background-image: url('image1.jpg');">
+                <div class="slide-text">Thank you,<p>for being my cutie</div>
+            </div>
+            <div class="slide" style="background-image: url('image2.jpg');">
+                <div class="slide-text">Thank you,<p>for being my support</div>
+            </div>
+            <div class="slide" style="background-image: url('image3.jpg');">
+                <div class="slide-text">Thank you,<p>for ehm..</p>EH! SAME POSE?!😭👉</div>
+            </div>
+            <div class="slide" style="background-image: url('image4.jpg');">
+                <div class="slide-text">WOWOWOWOW<p>so gorgeous😭 </div>
+            </div>
+            <div class="slide" style="background-image: url('image5.jpg');">
+                <div class="slide-text">Thank you,<p>for making me smile so effortlessly 😭</div>
+            </div>
+            <div class="slide" style="background-image: url('image6.jpg');">
+                <div class="slide-text">YOU MAKE MY LIFE <p>COLOURFUL🌈</div>
+            </div>
+            <div class="slide" style="background-image: url('image7.jpg');">
+                <div class="slide-text">Thank you,<p>for being my hawtie 😏</div> 
+            </div>
+            <!-- Image 1 comes right after Image 7 -->
+            <div class="slide" style="background-image: url('image1.jpg');">
+                <div class="slide-text">Thank you,<p>for EVERYTHING✨ </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Scroll prompt -->
+    <div id="scroll-prompt" class="scroll-prompt">
+        <span>Scroll if you a CUTIE</span>
+        <span class="scroll-arrow">↓</span>
+    </div>
+
+    <script>
+        // Reveal the message and enable scrolling
+        function startEmojiShower() {
+            revealMessage();
+            enableScroll();
+            showScrollingText(); // Show scrolling text after button click
+            showScrollPrompt(); // Show scroll prompt text and arrow after button click
+            for (let i = 0; i < 50; i++) {
+                createFallingEmoji();
+            }
+            hideScrollPrompt(); // Fade out scroll prompt after 5 seconds
+        }
+
+        function revealMessage() {
+            document.getElementById('message').style.display = 'block';
+        }
+
+        function enableScroll() {
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        }
+
+        function createFallingEmoji() {
+            const emoji = document.createElement('div');
+            emoji.textContent = '💖';
+            emoji.className = 'emoji';
+            emoji.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            emoji.style.fontSize = Math.random() * 30 + 20 + 'px'; // Random size
+            emoji.style.animationDuration = Math.random() * 2 + 3 + 's'; // Random fall speed
+            document.body.appendChild(emoji);
+
+            // Remove emoji after animation ends
+            emoji.addEventListener('animationend', () => {
+                emoji.remove();
+            });
+        }
+
+        function showScrollingText() {
+            const scrollText = document.getElementById('scroll-text');
+            scrollText.style.display = 'block'; // Show scrolling text
+        }
+
+        function showScrollPrompt() {
+            const scrollPrompt = document.getElementById('scroll-prompt');
+            scrollPrompt.style.display = 'flex'; // Show scroll prompt
+        }
+
+        function hideScrollPrompt() {
+            const scrollPrompt = document.getElementById('scroll-prompt');
+            setTimeout(() => {
+                scrollPrompt.style.opacity = 0; // Fade out the scroll prompt
+            }, 5000);
+        }
+
+        // Adding delayed text appearance with smooth fade-in effect
+        window.addEventListener('scroll', function() {
+            const delayedText = document.getElementById('delayed-text');
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const textPosition = delayedText.offsetTop;
+
+            if (scrollPosition > textPosition) {
+                delayedText.classList.add('visible');
+            }
+        });
+
+        // Add animation on page load
+        window.onload = () => {
+            setTimeout(() => {
+                const textElement = document.getElementById("scroll-text");
+                textElement.style.animationPlayState = "running";
+            }, 1000); // Start after a short delay for effect
+        };
+    </script>
+
+</body>
+</html>
